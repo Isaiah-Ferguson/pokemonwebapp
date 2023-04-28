@@ -1,0 +1,124 @@
+@font-face {
+    font-family: Bruno;
+    src: url('../fonts/BrunoAce-Regular.ttf');
+}
+@font-face {
+    font-family: KaiReg;
+    src: url('../fonts/KaiseiDecol-Regular.ttf');
+}
+@font-face {
+    font-family: KaiBold;
+    src: url('../fonts/KaiseiDecol-Bold.ttf');
+}
+@font-face {
+    font-family: KaiMedium;
+    src: url('../fonts/KaiseiDecol-Medium.ttf');
+}
+
+.Card{
+    color: whitesmoke;
+    font-family: KaiBold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    height: 600px;
+    border: 15px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    perspective: 600px;
+    transform: 0.5s;
+}
+
+.card-front{
+    border-radius: 20px;
+    padding: 5px;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateY(0deg);
+    transition: 0.5s;
+    background: linear-gradient(45deg, #15525f, #200394);
+}
+
+
+
+.card-back{
+    height: 100%;
+    width: 100%;
+    background-position: 50%, 50%;
+    background: url('../assets/Poke.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: rotateY(0deg);
+    transition: 0.7s;
+}
+
+
+.Card:hover .card-front{
+    transform: rotateY(-180deg);
+}
+
+.Card:hover .card-back{
+    transform: rotateY(180deg);
+}
+.SpriteBG{
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    width: 100%;
+}
+
+.Loca{
+    color: #130f22;
+    background-color: antiquewhite;
+    width: 100%;
+}
+
+.scrollDiv{
+    height: 100px;
+    width: 75%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.scrollDiv::-webkit-scrollbar {
+    display: none;
+}
+
+.Description{
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 30px rgba(130, 126, 207, 0.5);
+    width: 75%;
+    height: 50px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.dayBG{
+    background: url('../assets/Bg.png') no-repeat;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.searchDiv{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
