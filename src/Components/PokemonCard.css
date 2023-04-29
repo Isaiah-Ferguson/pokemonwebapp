@@ -15,11 +15,13 @@
     src: url('../fonts/KaiseiDecol-Medium.ttf');
 }
 
+
+
 .Card{
     color: whitesmoke;
     font-family: KaiBold;
     position: absolute;
-    top: 50%;
+    top: 54%;
     left: 50%;
     width: 450px;
     height: 600px;
@@ -62,11 +64,11 @@
 }
 
 
-.Card:hover .card-front{
+.Card:active .card-front{
     transform: rotateY(-180deg);
 }
 
-.Card:hover .card-back{
+.Card:active .card-back{
     transform: rotateY(180deg);
 }
 .SpriteBG{
@@ -76,6 +78,10 @@
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     width: 100%;
 }
+.banner{
+    width: 30%;
+}
+
 
 .Loca{
     color: #130f22;
@@ -97,14 +103,26 @@
     display: none;
 }
 
+.favButon{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-image: url('../assets/PokeBall.png');
+    background-size: cover;
+}
+
 .Description{
     background: transparent;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 30px rgba(130, 126, 207, 0.5);
+    border: 3px solid rgba(0, 0, 0, 0.3);
     width: 75%;
     height: 50px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.Description::-webkit-scrollbar {
+    display: none;
 }
 
 .dayBG{
@@ -118,7 +136,33 @@
 }
 
 .searchDiv{
-    width: 25%;
-    display: flex;
-    justify-content: center;
+    position: absolute;
+    top: 90%;
+    left: 40%
 }
+
+.pokeFaverite{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+
+    .banner{
+        width: 70%;
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    .Card{
+        width: 350px;
+    }
+    .types{
+        font-size: small;
+    }
+    .banner{
+        width: 100%;
+    }
+    
+}
+

@@ -36,4 +36,4 @@ function removeFromLocalStorage(pokemon){
     localStorage.setItem('Favorites', JSON.stringify(favorites));
 }
 
-export default {saveToLocalStorageByName, getLocalStorage, removeFromLocalStorage}
+export {saveToLocalStorageByName, getLocalStorage, removeFromLocalStorage}

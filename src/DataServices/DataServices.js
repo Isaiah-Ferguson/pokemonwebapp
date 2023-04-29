@@ -35,7 +35,6 @@ async function PokemonApiCall(pokemon) {
     const data = await promise.json();
     PokeData = data;
     PokeFav = PokeData.name;
-    console.log(data.sprites.other['official-artwork'].front_default)
     
     let PokemoneName = PokeData.name.charAt(0).toUpperCase() + PokeData.name.slice(1) + ', #' + PokeData.order;
     let PokemonType = "Type: " + PokeData.types.map(element => " " + element.type.name.charAt(0).toUpperCase() + element.type.name.slice(1));
@@ -50,7 +49,7 @@ async function PokemonApiCall(pokemon) {
         Ability: PokemonAbility,
         Moves: PokemonMoves,
         ID: PokeData.id,
-        Location: PokeData.location_area_encounters,
+        Location: PokeData.location_area_encounters
     }
     return pokiObject;
 };
@@ -95,7 +94,8 @@ async function PokeEvoCall(pokemon) {
 async function PokeDescriptionCall(pokemon) {
     const promise = await fetch("https://pokeapi.co/api/v2/pokemon-species/" + pokemon);
     const data = await promise.json();
-    return data.flavor_text_entries[0].flavor_text;
+    const enFlavorText = data.flavor_text_entries.find(entry => entry.language.name === "en").flavor_text;
+    return enFlavorText;
 }
 
 
