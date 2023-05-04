@@ -1,25 +1,15 @@
 import React from 'react'
 import { Col,Row } from 'react-bootstrap'
 import { PokeEvoTwoCall, PokeLocationCall, PokemonApiCall, spriteFetch } from '../DataServices/DataServices'
-import { saveToLocalStorageByName } from '../DataServices/localstorage';
 export default function PokemonCard(props) {
 
 
-  const handleFavorites = () => {
-    if (props.name === "") {
-    } else {
-      console.log(props)
-        saveToLocalStorageByName(props.fav);
-    }
-};
 
   return (
     <div className='Card'>
       <div className='card-back'>
         <div className='card-front'>
-        <div title='Click to add to Favorites' className='favButon' onClick={handleFavorites}></div>
         <Row className='d-flex justify-content-between'>
-          <Col lg={1} md={1} xs={1}></Col>
         <Col>{props.name}</Col>
         
         <Col className='d-flex justify-content-end types'>{props.type}</Col>

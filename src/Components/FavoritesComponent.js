@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import {  getLocalStorage, removeFromLocalStorage } from "../DataServices/localstorage";
 import {  Row, Col } from 'react-bootstrap'
 import x from '../assets/X.png'
-import { PokemonApiCall, PokeLocationCall, PokeEvoCall, PokeDescriptionCall } from '../DataServices/DataServices';
+import { PokemonApiCall, PokeLocationCall, PokeEvoCall, PokeDescriptionCall,FavoritesPokemonApiCall } from '../DataServices/DataServices';
 
 function Favorites() {
-    const [pokemon, setPokemon] = useState('charmander');
-    const [test, setTest] = useState({});
-    const [test2, setTest2] = useState('');
-    const [location, setLocation] = useState('');
-    const [evolution, setEvolution] = useState('');
-    const [description, setDescription] = useState('');
+    const [pokemon, setPokemon] = useState('');
+    const [height, setHeight] = useState({});
+    const [img, setImg] = useState('');
+    const [weight, setWeight] = useState('');
+    const [order, setOrder] = useState('');
   const [favorites, setFavorites] = useState(getLocalStorage());
 
   const handleRemove = (pokemon) => {
@@ -21,15 +20,12 @@ function Favorites() {
   const handlePokemonClick = (pokemon) => {
     const getPokemon = async () => {
         console.log(pokemon)
-        const pokeFav = await PokemonApiCall(pokemon);
-        let Location = await PokeLocationCall(pokeFav.Location);
-        let Evolution = await PokeEvoCall(pokeFav.Evo);
-        let Desc = await PokeDescriptionCall(pokeFav.Evo)
-        setDescription(Desc);
-        setEvolution(Evolution);
-        setTest(pokeFav)
-        setLocation(Location);
-        setTest2(pokeFav.sprite);
+        const pokeFav = await FavoritesPokemonApiCall(pokemon);
+  
+        setHeight(pokeFav);
+        setWeight(pokeFav);
+        setOrder(pokeFav)
+        setImg(pokeFav.sprite);
       };
       getPokemon();
     
@@ -37,8 +33,18 @@ function Favorites() {
 
   return (
     <>
+              <Row>
+            <Col lg={6}><img style={{width: 200}} src={img}></img></Col>
+            <Col lg={6}>
+<p> Order # {order.Order}</p>
+<p>Weight {weight.Weight} lbs</p>
+<p>Height {height.Height} Inches</p>
+
+            </Col>
+          </Row>
       {favorites.map(pokemon => (
         <div key={pokemon}>
+
             <Row style={{paddingTop: 30}}>
                 <Col lg={6} sm={6}>
                 <p
@@ -46,16 +52,19 @@ function Favorites() {
               style={{ fontSize: "21px", paddingTop: "3px" }}
               onClick={() => handlePokemonClick(pokemon)}>
               {pokemon}
+              <img style={{height: 20, marginLeft: '25px'}} onClick={() => handleRemove(pokemon)} src={x}/>
             </p>
+
+            
                 </Col>
-                <Col lg={6} sm={6}>
-                <div className="" onClick={() => handleRemove(pokemon)}>
-              <img style={{height: 40}} src={x}/>
-            </div>
-                </Col>
+
             </Row>
         </div>
       ))}
+
+      <div>
+
+      </div>
     </>
   );
 }

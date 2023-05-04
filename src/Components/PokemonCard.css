@@ -79,7 +79,8 @@
     width: 100%;
 }
 .banner{
-    width: 30%;
+    width: 40%;
+    position: absolute;
 }
 
 
@@ -110,6 +111,9 @@
     cursor: pointer;
     background-image: url('../assets/PokeBall.png');
     background-size: cover;
+    left: -25px;
+    top: -25px;
+    z-index: 1;
 }
 
 .Description{
@@ -136,9 +140,8 @@
 }
 
 .searchDiv{
-    position: absolute;
-    top: 90%;
-    left: 40%
+margin-top: 800px;
+position: absolute;
 }
 
 .pokeFaverite{
@@ -147,10 +150,10 @@
 
 @media screen and (max-width: 800px) {
 
-    .banner{
+    /* .banner{
         width: 70%;
-    }
-    
+    } */
+
 }
 
 @media screen and (max-width: 500px) {
@@ -163,6 +166,8 @@
     .banner{
         width: 100%;
     }
-    
+    .favButon{
+        left: 0;
+    }
 }
 
