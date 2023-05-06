@@ -36,12 +36,12 @@ async function FavoritesPokemonApiCall(pokemon) {
     PokeData = data;
     PokeFav = PokeData.name;
     let PokeHeight = data.height;
-    let PokeWeight = data.weight;
+    let PokeWeight = data.weight / 2.20462;
     let PokeOrder = data.order;
-
+    console.log(data)
     let pokiObject = {
-        Weight: PokeHeight,
-        Height: PokeWeight,
+        Weight: PokeWeight,
+        Height: PokeHeight,
         Order: PokeOrder,
         sprite: data.sprites.other['official-artwork'].front_default,
 

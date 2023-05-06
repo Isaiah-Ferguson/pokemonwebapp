@@ -19,9 +19,9 @@ function Favorites() {
 
   const handlePokemonClick = (pokemon) => {
     const getPokemon = async () => {
-        console.log(pokemon)
+
         const pokeFav = await FavoritesPokemonApiCall(pokemon);
-  
+        console.log(pokeFav)
         setHeight(pokeFav);
         setWeight(pokeFav);
         setOrder(pokeFav)
@@ -34,11 +34,11 @@ function Favorites() {
   return (
     <>
               <Row>
-            <Col lg={6}><img style={{width: 200}} src={img}></img></Col>
-            <Col lg={6}>
-<p> Order # {order.Order}</p>
-<p>Weight {weight.Weight} lbs</p>
-<p>Height {height.Height} Inches</p>
+            <Col lg={6} md={6} sm={6} xs={6}><img style={{width: 200}} src={img}></img></Col>
+            <Col lg={6}  md={6} sm={6} xs={6}>
+<p className='pokefavetext'> Order # {order.Order}</p>
+<p className='pokefavetext'>Weight {weight.Weight} lbs</p>
+<p className='pokefavetext'>Height {height.Height} Inches</p>
 
             </Col>
           </Row>
